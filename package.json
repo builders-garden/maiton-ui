@@ -4,7 +4,8 @@
   "description": "Maiton UI components and CLI",
   "main": "index.js",
   "scripts": {
-    "publish-cli": "cd cli && npm publish"
+    "publish-cli": "cd cli && npm publish",
+    "preinstall": "cd cli && npm install"
   },
   "keywords": [],
   "author": "",
