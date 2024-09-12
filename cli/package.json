@@ -1,0 +1,16 @@
+{
+  "name": "maiton-ui-cli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "bin": {
+    "maiton-ui-cli": "./index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "CLI to add Maiton UI components to your project",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "fs-extra": "^11.2.0"
+  }
+}
