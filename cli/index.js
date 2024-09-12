@@ -39,18 +39,16 @@ async function setupFirstTime(projectRoot) {
   console.log('Installing dependencies...');
   await executeCommand('npm install class-variance-authority tailwind-merge');
 
-  // Create utils.ts file
-  const utilsPath = path.join(projectRoot, 'app', 'frames', 'lib', 'utils.ts');
-  const utilsContent = `
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
+  // Copy utils.ts file
+  const sourceUtilsPath = path.join(__dirname, '..', 'lib', 'utils.ts');
+  const destUtilsPath = path.join(projectRoot, 'app', 'frames', 'lib', 'utils.ts');
+  
+  if (!fs.existsSync(sourceUtilsPath)) {
+    throw new Error('utils.ts file not found in the source directory.');
+  }
 
-export function cn(...inputs: ClassValue[]) {
-    return twMerge(clsx(inputs))
-}
-`;
-  await fs.outputFile(utilsPath, utilsContent);
-  console.log('Created utils.ts file.');
+  await fs.copy(sourceUtilsPath, destUtilsPath);
+  console.log('Copied utils.ts file to your project.');
 }
 
 async function copyComponentFile(componentName, projectRoot) {
