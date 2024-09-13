@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "publish-cli": "cd cli && npm publish",
-    "preinstall": "cd cli && npm install"
+    "postinstall": "cd cli && npm install"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,7 @@
     "@emotion/styled": "^11.13.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "frames.js": "^0.19.1",
     "react": "^18.3.1",
     "tailwind-merge": "^2.5.2",
     "twin.macro": "^3.4.1",
