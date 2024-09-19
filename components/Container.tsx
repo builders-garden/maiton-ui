@@ -1,5 +1,6 @@
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "../lib/utils";
+import React from "react";
 
 const containerVariants = cva("flex flex-col w-full h-full", {
   variants: {
@@ -32,3 +33,4 @@ const Container: React.FC<ContainerProps> = ({
 };
 
 export { Container };
+export type { ContainerProps };

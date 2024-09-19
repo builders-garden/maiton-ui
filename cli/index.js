@@ -3,6 +3,8 @@
 const { program } = require('commander');
 const fs = require('fs-extra');
 const path = require('path');
+const parser = require('@babel/parser');
+const traverse = require('@babel/traverse').default;
 
 program
   .name('maitonui')
@@ -31,7 +33,57 @@ async function addComponent(componentName) {
     await setupFirstTime(projectRoot);
   }
 
-  await copyComponentFile(componentName, projectRoot);
+  await copyComponentWithDependencies(componentName, projectRoot);
+}
+
+async function copyComponentWithDependencies(componentName, projectRoot) {
+  const copiedComponents = new Set();
+
+  async function copyRecursively(component) {
+    if (copiedComponents.has(component)) {
+      return;
+    }
+
+    const destComponentPath = path.join(projectRoot, 'app', 'frames', 'components', `${component}.tsx`);
+    
+    if (!fs.existsSync(destComponentPath)) {
+      await copyComponentFile(component, projectRoot);
+      copiedComponents.add(component);
+
+      const dependencies = await detectDependencies(component);
+      for (const dep of dependencies) {
+        await copyRecursively(dep);
+      }
+    } else {
+      console.log(`Component ${component} already exists, skipping.`);
+    }
+  }
+
+  await copyRecursively(componentName);
+}
+
+async function detectDependencies(componentName) {
+  const sourceComponentPath = path.join(__dirname, '..', 'components', `${componentName}.tsx`);
+  const content = await fs.readFile(sourceComponentPath, 'utf-8');
+
+  const ast = parser.parse(content, {
+    sourceType: 'module',
+    plugins: ['jsx', 'typescript']
+  });
+
+  const dependencies = new Set();
+
+  traverse(ast, {
+    ImportDeclaration(path) {
+      const importPath = path.node.source.value;
+      if (importPath.startsWith('./')) {
+        const dependency = importPath.slice(2).replace(/\.tsx?$/, '');
+        dependencies.add(dependency);
+      }
+    }
+  });
+
+  return Array.from(dependencies);
 }
 
 async function setupFirstTime(projectRoot) {
