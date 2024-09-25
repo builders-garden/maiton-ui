@@ -11,5 +11,19 @@ export default defineConfig({
       text: 'Example',
       link: '/example',
     },
+    { 
+      text: 'Components', 
+      collapsed: false, 
+      items: [ 
+        {
+          text: 'Address',
+          link: '/components/address',
+        },
+        {
+          text: 'Text',
+          link: '/components/text',
+        } 
+      ], 
+    },
   ],
 })
