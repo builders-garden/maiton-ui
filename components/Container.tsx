@@ -5,13 +5,13 @@ import React from "react";
 const containerVariants = cva("flex flex-col w-full h-full", {
   variants: {
     size: {
-      default: "p-[75px]",
       sm: "p-[50px]",
+      md: "p-[75px]",
       lg: "p-[100px]",
     },
   },
   defaultVariants: {
-    size: "default",
+    size: "md",
   },
 });
 

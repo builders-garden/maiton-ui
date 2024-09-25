@@ -13,14 +13,14 @@ const badgeVariants = cva("flex justify-center items-center", {
       warning: "bg-yellow-500 text-white",
     },
     size: {
-      default: "text-[32px] h-[73px] px-8 rounded-[80px]",
       sm: "text-[24px] h-[55px] px-4 rounded-[60px]",
+      md: "text-[32px] h-[73px] px-8 rounded-[80px]",
       lg: "text-[40px] h-[90px] px-8 rounded-[100px]",
     },
   },
   defaultVariants: {
     variant: "primary",
-    size: "default",
+    size: "md",
   },
 });
 

@@ -12,21 +12,20 @@ const MAX_DISPLAY_NAME_LENGTH = 14;
 const userBannerVariants = cva("flex absolute items-center", {
   variants: {
     position: {
-      default: "top-[75px] left-[75px]",
       topRight: "top-[75px] right-[75px]",
       bottomRight: "bottom-[75px] right-[75px]",
       topLeft: "top-[75px] left-[75px]",
       bottomLeft: "bottom-[75px] left-[75px]",
     },
     size: {
-      default: "text-[30px]",
       sm: "text-[20px]",
+      md: "text-[30px]",
       lg: "text-[40px]",
     },
   },
   defaultVariants: {
-    position: "default",
-    size: "default",
+    position: "topLeft",
+    size: "md",
   },
 });
 

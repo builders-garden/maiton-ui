@@ -14,14 +14,14 @@ const bannerVariants = cva(
         bottomLeft: "bottom-0 left-0",
       },
       size: {
-        default: "text-[30px]",
         sm: "text-[20px]",
+        md: "text-[30px]",
         lg: "text-[40px]",
       },
     },
     defaultVariants: {
       position: "default",
-      size: "default",
+      size: "md",
     },
   }
 )
