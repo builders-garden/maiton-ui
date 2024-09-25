@@ -1,0 +1,33 @@
+# UserBanner
+
+A component that displays a user's profile picture and display name.
+
+Add `UserBanner` to your project with the following command:
+
+```sh
+npx maiton-ui add UserBanner
+```
+
+## Props
+
+The `UserBanner` component extends [`div`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div), so you can pass all standard `div` props.
+
+### `user`
+
+| Description | The user object containing display name and profile picture |
+|-------------|------------------------------------------------------------ |
+| Type        | `User`                                                      |
+
+### `position`
+
+| Description | The position of the user banner on the screen                   |
+|-------------|---------------------------------------------------------------- |
+| Type        | `topRight \| bottomRight \| topLeft \| bottomLeft \| undefined` |
+| Default     | `topLeft`                                                       |
+
+### `size`
+
+| Description | The size of the user banner text |
+|-------------|--------------------------------- |
+| Type        | `sm \| md \| lg \| undefined`    |
+| Default     | `md`                             |

@@ -7,7 +7,7 @@ const bannerVariants = cva(
   {
     variants: {
       position: {
-        default: "",
+        centered: "",
         topRight: "top-0 right-0",
         bottomRight: "bottom-0 right-0",
         topLeft: "top-0 left-0",
@@ -20,7 +20,7 @@ const bannerVariants = cva(
       },
     },
     defaultVariants: {
-      position: "default",
+      position: "centered",
       size: "md",
     },
   }

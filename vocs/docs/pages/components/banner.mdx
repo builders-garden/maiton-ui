@@ -1,0 +1,27 @@
+# Banner
+
+A component that displays a banner with customizable position and size.
+
+Add `Banner` to your project with the following command:
+
+```sh
+npx maiton-ui add Banner
+```
+
+## Props
+
+The `Banner` component extends [`div`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div), so you can pass all standard `div` props.
+
+### `position`
+
+| Description | The position of the banner on the screen                          |
+|-------------|------------------------------------------------------------------ |
+| Type        | `centered \| topRight \| bottomRight \| topLeft \| bottomLeft \|` |
+| Default     | `centered`                                                        |
+
+### `size`
+
+| Description | The size of the banner text   |
+|-------------|------------------------------ |
+| Type        | `sm \| md \| lg \| undefined` |
+| Default     | `md`                          |

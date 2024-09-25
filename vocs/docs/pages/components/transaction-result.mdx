@@ -1,0 +1,38 @@
+# TransactionResult
+
+A component that displays the result of a transaction with an icon and message.
+
+Add `TransactionResult` to your project with the following command:
+
+```sh
+npx maiton-ui add TransactionResult
+```
+
+## Props
+
+The `TransactionResult` component extends [`Container`](#container), so you can pass all `ContainerProps`.
+
+### `type`
+
+| Description | The type of transaction result     |
+|-------------|----------------------------------- |
+| Type        | `"success" \| "failed" \| "error"` |
+
+### `title`
+
+| Description | The title of the transaction result |
+|-------------|------------------------------------ |
+| Type        | `string \| undefined`               |
+| Default     | `"success" \| "failed" \| "error"`  |
+
+### `titleProps`
+
+| Description | Additional props for the title text |
+|-------------|------------------------------------ |
+| Type        | `TextProps \| undefined`            |
+
+### `childrenProps`
+
+| Description | Additional props for the children text |
+|-------------|--------------------------------------- |
+| Type        | `TextProps \| undefined`               |
