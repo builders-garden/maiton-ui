@@ -1,6 +1,6 @@
 {
   "name": "maiton-ui",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Maiton UI components and CLI",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "postinstall": "cd cli && npm install"
   },
   "keywords": [],
-  "author": "",
+  "author": "Builders Garden <https://builders.garden>",
   "license": "ISC",
   "dependencies": {
     "@emotion/react": "^11.13.3",
