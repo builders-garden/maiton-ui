@@ -12,6 +12,32 @@ A component that displays a user's profile picture and display name.
 npx maiton-ui add UserBanner
 ```
 
+## Usage
+
+To get the user data, you have to use the [`farcasterHubContext`](https://framesjs.org/middleware/farcaster-hub-context) in the middleware.
+
+```tsx
+import { UserBanner } from "../components/UserBanner";
+```
+
+```tsx
+import { getUserDataForFid, UserDataReturnType } from "frames.js";
+
+const user: UserDataReturnType = await getUserDataForFid({
+  fid: ctx.message?.requesterFid,
+});
+
+...
+
+<UserBanner
+  user={{
+    displayName: user.displayName,
+    pfp: user?.profileImage,
+  }}
+/>
+
+```
+
 ## Props
 
 The `UserBanner` component extends [`div`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div), so you can pass all standard `div` props.
@@ -20,7 +46,7 @@ The `UserBanner` component extends [`div`](https://developer.mozilla.org/en-US/d
 
 | Description | The user object containing display name and profile picture |
 |-------------|------------------------------------------------------------ |
-| Type        | `User`                                                      |
+| Type        | `User: {displayName: string, pfp: string}`                |
 
 ### `position`
 

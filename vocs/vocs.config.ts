@@ -2,7 +2,7 @@ import { defineConfig } from 'vocs'
 
 export default defineConfig({
   logoUrl: '/maiton-rounded.png',
-  title: 'Docs',
+  title: 'Maiton UI',
   sidebar: [
     {
       text: 'Getting Started',
