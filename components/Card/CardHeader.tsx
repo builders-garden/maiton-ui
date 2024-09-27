@@ -3,14 +3,7 @@ import { cn } from "../../lib/utils";
 import React from "react";
 
 const cardHeaderVariants = cva("flex flex-col w-full mb-4", {
-  variants: {
-    size: {
-      default: "",
-    },
-  },
-  defaultVariants: {
-    size: "default",
-  },
+  variants: {},
 });
 
 interface CardHeaderProps

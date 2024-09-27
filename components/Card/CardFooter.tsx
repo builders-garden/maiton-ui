@@ -2,14 +2,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "../../lib/utils";
 
 const cardFooterVariants = cva("flex flex-col w-full my-4", {
-  variants: {
-    size: {
-      default: "",
-    },
-  },
-  defaultVariants: {
-    size: "default",
-  },
+  variants: {},
 });
 
 interface CardFooterProps
