@@ -5,6 +5,8 @@ const cardDescriptionVariants = cva("my-0", {
   variants: {
     size: {
       default: "text-[32px]",
+      sm: "text-[20px]",
+      lg: "text-[40px]",
     },
   },
   defaultVariants: {
@@ -18,11 +20,12 @@ interface CardDescriptionProps
 
 const CardDescription: React.FC<CardDescriptionProps> = ({
   children,
+  size,
   tw,
   ...props
 }) => {
   return (
-    <p tw={cn(cardDescriptionVariants({ className: tw }))} {...props}>
+    <p tw={cn(cardDescriptionVariants({ size, className: tw }))} {...props}>
       {children}
     </p>
   );
