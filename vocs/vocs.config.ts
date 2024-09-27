@@ -1,50 +1,54 @@
-import { defineConfig } from 'vocs'
+import { defineConfig } from "vocs";
 
 export default defineConfig({
-  logoUrl: '/maiton-rounded.png',
-  title: 'Maiton UI',
+  logoUrl: "/maiton-rounded.png",
+  title: "Maiton UI",
   sidebar: [
     {
-      text: 'Getting Started',
-      link: '/getting-started',
+      text: "Getting Started",
+      link: "/getting-started",
     },
     {
-      text: 'Example',
-      link: '/example',
+      text: "Example",
+      link: "/example",
     },
-    { 
-      text: 'Components', 
-      collapsed: false, 
-      items: [ 
+    {
+      text: "Components",
+      collapsed: false,
+      items: [
         {
-          text: 'Address',
-          link: '/components/address',
+          text: "Address",
+          link: "/components/address",
         },
         {
-          text: 'Badge',
-          link: '/components/badge',
+          text: "Avatar",
+          link: "/components/avatar",
         },
         {
-          text: 'Banner',
-          link: '/components/banner',
+          text: "Badge",
+          link: "/components/badge",
         },
         {
-          text: 'Container',
-          link: '/components/container',
+          text: "Banner",
+          link: "/components/banner",
         },
         {
-          text: 'Text',
-          link: '/components/text',
+          text: "Container",
+          link: "/components/container",
         },
         {
-          text: 'TransactionResult',
-          link: '/components/transaction-result',
+          text: "Text",
+          link: "/components/text",
         },
         {
-          text: 'UserBanner',
-          link: '/components/user-banner',
+          text: "TransactionResult",
+          link: "/components/transaction-result",
         },
-      ], 
+        {
+          text: "UserBanner",
+          link: "/components/user-banner",
+        },
+      ],
     },
   ],
-})
+});
