@@ -15,7 +15,7 @@ export default defineConfig({
     {
       text: "Components",
       collapsed: false,
-      items: [
+      items: [ 
         {
           text: "Address",
           link: "/components/address",
