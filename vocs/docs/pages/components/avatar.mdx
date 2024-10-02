@@ -1,3 +1,8 @@
+---
+title: "Guide: Create your first Frame"
+description: "Frames.js is the react based framework for making frames. Debugger included."
+---
+
 import { Button } from 'vocs/components'
 import { Avatar } from '../../../../components/Avatar'
 
@@ -25,10 +30,21 @@ A versatile component that displays an avatar with various styles and sizes.
 
 ## Installation
 
-```sh
+:::code-group
+
+```bash [npm]
 npx maiton-ui add Avatar
 ```
 
+```bash [yarn]
+yarn dlx maiton-ui add Avatar
+```
+
+```bash [pnpm]
+pnpx maiton-ui add Avatar
+```
+
+:::
 ## Props
 
 The `Avatar` component extends [`img`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img), so you can pass all standard `img` props.
@@ -53,3 +69,7 @@ The `Avatar` component extends [`img`](https://developer.mozilla.org/en-US/docs/
 |-------------|------------------------------ |
 | Type        | `sm \| md \| lg \| xl \| full \| none` |
 | Default     | `full`                          |
+
+
+## Done
+
