@@ -1,4 +1,3 @@
-import * as React from "react";
 import { type SidebarItem, defineConfig } from "vocs";
 
 const sidebar: SidebarItem[] = [
@@ -52,8 +51,8 @@ export default defineConfig({
   logoUrl: "/maiton-rounded.png",
   iconUrl: "/favicon.png",
   baseUrl:
-    process.env.VERCEL_ENV === "production"
-      ? "https://maiton.dev"
-      : process.env.VERCEL_URL || "http://localhost:5173",
+    process.env.NODE_ENV === "production"
+      ? "https://maiton-ui.vercel.app"
+      : "http://localhost:5173",
   sidebar,
 });
