@@ -49,10 +49,7 @@ export default defineConfig({
   title: "Maiton UI",
   description: "Maiton UI is a UI library for building easy-to-use frames.",
   logoUrl: "/maiton-rounded.png",
-  iconUrl: "/favicon.png",
-  baseUrl:
-    process.env.NODE_ENV === "production"
-      ? "https://maiton-ui.vercel.app"
-      : "http://localhost:5173",
+  iconUrl: "/favicon.ico",
+  rootDir: ".",
   sidebar,
 });
