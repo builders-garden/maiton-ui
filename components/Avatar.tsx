@@ -5,9 +5,10 @@ import React from "react";
 const avatarVariants = cva("m-0", {
   variants: {
     size: {
-      sm: "size-[32px]",
-      md: "size-[40px]",
-      lg: "size-[52px]",
+      sm: "w-[32px] h-[32px]",
+      md: "w-[40px] h-[40px]",
+      lg: "w-[52px] h-[52px]",
+      xl: "w-[64px] h-[64px]",
     },
     borderRadius: {
       sm: "rounded-sm",
