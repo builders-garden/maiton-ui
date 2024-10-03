@@ -18,6 +18,10 @@ const sidebar: SidebarItem[] = [
         link: "/components/avatar",
       },
       {
+        text: "BackgroundImage",
+        link: "/components/background-image",
+      },
+      {
         text: "Badge",
         link: "/components/badge",
       },

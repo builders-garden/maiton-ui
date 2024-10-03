@@ -1,0 +1,75 @@
+---
+title: "Component: BackgroundImage"
+description: "BackgroundImage component"
+---
+
+import { Button } from 'vocs/components'
+import { BackgroundImage } from '../../../../components/BackgroundImage'
+
+# BackgroundImage
+
+<Button href="https://github.com/builders-garden/maiton-ui/blob/main/components/BackgroundImage.tsx">GitHub</Button>
+
+A versatile component that displays an image with various styles and sizes.
+
+:::code-group
+ 
+<div data-title="Preview">
+  <BackgroundImage
+    src="https://lh3.googleusercontent.com/-S5cdhOpZtJ_Qzg9iPWELEsRTkIsZ7qGYmVlwEORgFB00WWAtZGefRnS4Bjcz5ah40WVOOWeYfU5pP9Eekikb3cLMW2mZQOMQHlWhg"
+    />
+</div>
+ 
+```tsx [frames/root.tsx]
+<BackgroundImage
+  src="https://lh3.googleusercontent.com/-S5cdhOpZtJ_Qzg9iPWELEsRTkIsZ7qGYmVlwEORgFB00WWAtZGefRnS4Bjcz5ah40WVOOWeYfU5pP9Eekikb3cLMW2mZQOMQHlWhg"
+/>
+```
+
+:::
+
+## Installation
+
+:::code-group
+
+```bash [npm]
+npx maiton-ui-cli add BackgroundImage
+```
+
+```bash [yarn]
+yarn dlx maiton-ui-cli add BackgroundImage
+```
+
+```bash [pnpm]
+pnpx maiton-ui-cli add BackgroundImage
+```
+
+:::
+## Props
+
+The `BackgroundImage` component extends [`div`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div), so you can pass all standard `div` props.
+
+### `src`
+
+| Description | The src of the background image on the frame                          |
+|-------------|------------------------------------------------------------------ |
+| Type        | `string` |
+| Default     | `undefined`                                                        |
+
+### `width`
+
+| Description | The width of the background image on the frame   |
+|-------------|------------------------------ |
+| Type        | `string` |
+| Default     | `955px`                          |
+
+### `height`
+
+| Description | The height of the background image on the frame   |
+|-------------|------------------------------ |
+| Type        | `string` |
+| Default     | `full`                          |
+
+
+## Done
+
