@@ -7,10 +7,15 @@
   "bin": {
     "maiton": "./cli/index.js"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "build": "tsc",
     "prepublishOnly": "npm run build && cd cli && npm install",
-    "publish-cli": "cd cli && npm publish"
+    "publish-cli": "cd cli && npm publish",
+    "dev": "tsup --watch",
+    "build": "tsup index.ts",
+    "clean": "rimraf dist"
   },
   "keywords": [
     "Farcaster",
@@ -36,6 +41,7 @@
     "typescript": "^5.6.2"
   },
   "devDependencies": {
-    "@types/react": "^18.3.5"
+    "@types/react": "^18.3.5",
+    "tsup": "^8.3.0"
   }
 }

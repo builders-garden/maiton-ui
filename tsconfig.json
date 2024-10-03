@@ -9,5 +9,5 @@
     "jsx": "react"
   },
   "include": ["components/**/*", "lib/**/*"],
-  "exclude": ["node_modules", "cli"]
+  "exclude": ["node_modules"]
 }
