@@ -3,7 +3,7 @@
 Simple and customizable components that you can copy and paste for building Farcaster frames fast.
 maiton-ui is free and open-source. Use it to build your own Farcaster frame components.
 
-[screen of the docs]
+![docs get started page](/public/docs.jpg)
 
 ## Documentation
 
