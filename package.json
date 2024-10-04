@@ -10,7 +10,8 @@
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run build && cd cli && npm install",
-    "publish-cli": "cd cli && npm publish"
+    "publish-cli": "cd cli && npm publish",
+    "postinstall": "cd cli && npm install"
   },
   "keywords": [
     "Farcaster",
