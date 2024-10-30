@@ -61,4 +61,9 @@ export const components: Registry = [
     files: ["components/user-banner.tsx"],
     type: "registry:component",
   },
+  {
+    name: "card",
+    files: ["components/card.tsx"],
+    type: "registry:component",
+  },
 ];

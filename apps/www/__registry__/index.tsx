@@ -161,5 +161,17 @@ export const Index: Record<string, any> = {
       subcategory: "",
       chunks: []
     },
+    "card": {
+      name: "card",
+      description: "",
+      type: "registry:component",
+      registryDependencies: undefined,
+      files: ["registry/default/components/card.tsx"],
+      component: React.lazy(() => import("@/registry/default/components/card.tsx")),
+      source: "",
+      category: "",
+      subcategory: "",
+      chunks: []
+    },
   },
 }

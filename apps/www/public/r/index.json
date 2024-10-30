@@ -118,5 +118,15 @@
         "type": "registry:component"
       }
     ]
+  },
+  {
+    "name": "card",
+    "type": "registry:component",
+    "files": [
+      {
+        "path": "components/card.tsx",
+        "type": "registry:component"
+      }
+    ]
   }
 ]

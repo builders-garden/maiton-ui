@@ -1,0 +1,12 @@
+{
+  "name": "card",
+  "type": "registry:component",
+  "files": [
+    {
+      "path": "components/card.tsx",
+      "content": "import React from \"react\";\nimport { cva, VariantProps } from \"class-variance-authority\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst cardVariants = cva(\n  \"flex flex-col w-full rounded-3xl py-[20px] px-[30px]\",\n  {\n    variants: {},\n  }\n);\n\ninterface CardProps\n  extends React.ComponentPropsWithoutRef<\"div\">,\n    VariantProps<typeof cardVariants> {}\n\nconst Card: React.FC<CardProps> = ({ children, tw, ...props }) => {\n  return (\n    <div tw={cn(cardVariants({ className: tw }))} {...props}>\n      {children}\n    </div>\n  );\n};\n\nconst cardContentVariants = cva(\"flex flex-col w-full my-4\", {\n  variants: {},\n});\n\ninterface CardContentProps\n  extends React.ComponentPropsWithoutRef<\"div\">,\n    VariantProps<typeof cardContentVariants> {}\n\nconst CardContent: React.FC<CardContentProps> = ({\n  children,\n  tw,\n  ...props\n}) => {\n  return (\n    <div tw={cn(cardContentVariants({ className: tw }))} {...props}>\n      {children}\n    </div>\n  );\n};\n\nconst cardHeaderVariants = cva(\"flex flex-col w-full mb-4\", {\n  variants: {},\n});\n\ninterface CardHeaderProps\n  extends React.ComponentPropsWithoutRef<\"div\">,\n    VariantProps<typeof cardHeaderVariants> {}\n\nconst CardHeader: React.FC<CardHeaderProps> = ({ children, tw, ...props }) => {\n  return (\n    <div tw={cn(cardHeaderVariants({ className: tw }))} {...props}>\n      {children}\n    </div>\n  );\n};\n\nconst cardTitleVariants = cva(\"my-2\", {\n  variants: {\n    size: {\n      default: \"text-[48px]\",\n      sm: \"text-[32px]\",\n      lg: \"text-[58px]\",\n    },\n  },\n  defaultVariants: {\n    size: \"default\",\n  },\n});\n\ninterface CardTitleProps\n  extends React.ComponentPropsWithoutRef<\"h2\">,\n    VariantProps<typeof cardTitleVariants> {}\n\nconst CardTitle: React.FC<CardTitleProps> = ({\n  children,\n  tw,\n  size,\n  ...props\n}) => {\n  return (\n    <h2 tw={cn(cardTitleVariants({ size, className: tw }))} {...props}>\n      {children}\n    </h2>\n  );\n};\n\nexport { Card, CardContent, CardHeader, CardTitle };\nexport type { CardProps, CardContentProps, CardHeaderProps, CardTitleProps };\n",
+      "type": "registry:component",
+      "target": ""
+    }
+  ]
+}
