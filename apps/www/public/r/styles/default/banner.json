@@ -1,0 +1,12 @@
+{
+  "name": "banner",
+  "type": "registry:component",
+  "files": [
+    {
+      "path": "components/banner.tsx",
+      "content": "import React from \"react\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst bannerVariants = cva(\"absolute\", {\n  variants: {\n    position: {\n      centered: \"\",\n      topRight: \"top-0 right-0\",\n      bottomRight: \"bottom-0 right-0\",\n      topLeft: \"top-0 left-0\",\n      bottomLeft: \"bottom-0 left-0\",\n    },\n    size: {\n      sm: \"text-[20px]\",\n      md: \"text-[30px]\",\n      lg: \"text-[40px]\",\n    },\n  },\n  defaultVariants: {\n    position: \"centered\",\n    size: \"md\",\n  },\n});\n\ninterface BannerProps\n  extends React.ComponentPropsWithoutRef<\"div\">,\n    VariantProps<typeof bannerVariants> {}\n\nconst Banner: React.FC<BannerProps> = ({ tw, position, size, ...props }) => {\n  return (\n    <div\n      tw={cn(bannerVariants({ position, size, className: tw }))}\n      {...props}\n    />\n  );\n};\n\nexport { Banner };\n",
+      "type": "registry:component",
+      "target": ""
+    }
+  ]
+}

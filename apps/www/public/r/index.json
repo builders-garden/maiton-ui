@@ -1,0 +1,122 @@
+[
+  {
+    "name": "address",
+    "type": "registry:component",
+    "files": [
+      {
+        "path": "components/address.tsx",
+        "type": "registry:component"
+      }
+    ]
+  },
+  {
+    "name": "text",
+    "type": "registry:component",
+    "files": [
+      {
+        "path": "components/text.tsx",
+        "type": "registry:component"
+      }
+    ]
+  },
+  {
+    "name": "avatar",
+    "type": "registry:component",
+    "files": [
+      {
+        "path": "components/avatar.tsx",
+        "type": "registry:component"
+      }
+    ]
+  },
+  {
+    "name": "background-image",
+    "type": "registry:component",
+    "files": [
+      {
+        "path": "components/background-image.tsx",
+        "type": "registry:component"
+      }
+    ]
+  },
+  {
+    "name": "badge",
+    "type": "registry:component",
+    "files": [
+      {
+        "path": "components/badge.tsx",
+        "type": "registry:component"
+      }
+    ]
+  },
+  {
+    "name": "banner",
+    "type": "registry:component",
+    "files": [
+      {
+        "path": "components/banner.tsx",
+        "type": "registry:component"
+      }
+    ]
+  },
+  {
+    "name": "column",
+    "type": "registry:component",
+    "files": [
+      {
+        "path": "components/column.tsx",
+        "type": "registry:component"
+      }
+    ]
+  },
+  {
+    "name": "container",
+    "type": "registry:component",
+    "files": [
+      {
+        "path": "components/container.tsx",
+        "type": "registry:component"
+      }
+    ]
+  },
+  {
+    "name": "progress",
+    "type": "registry:component",
+    "files": [
+      {
+        "path": "components/progress.tsx",
+        "type": "registry:component"
+      }
+    ]
+  },
+  {
+    "name": "row",
+    "type": "registry:component",
+    "files": [
+      {
+        "path": "components/row.tsx",
+        "type": "registry:component"
+      }
+    ]
+  },
+  {
+    "name": "transaction-result",
+    "type": "registry:component",
+    "files": [
+      {
+        "path": "components/transaction-result.tsx",
+        "type": "registry:component"
+      }
+    ]
+  },
+  {
+    "name": "user-banner",
+    "type": "registry:component",
+    "files": [
+      {
+        "path": "components/user-banner.tsx",
+        "type": "registry:component"
+      }
+    ]
+  }
+]

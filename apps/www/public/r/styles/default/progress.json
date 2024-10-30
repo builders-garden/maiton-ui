@@ -1,0 +1,12 @@
+{
+  "name": "progress",
+  "type": "registry:component",
+  "files": [
+    {
+      "path": "components/progress.tsx",
+      "content": "import React from \"react\";\nimport { cva, VariantProps } from \"class-variance-authority\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst progressVariants = cva(\"flex flex-row w-full rounded-full\", {\n  variants: {\n    size: {\n      default: \"h-[30px]\",\n      sm: \"h-[5px]\",\n      lg: \"h-[15px]\",\n    },\n  },\n  defaultVariants: {\n    size: \"default\",\n  },\n});\n\ninterface ProgressProps\n  extends React.ComponentPropsWithoutRef<\"div\">,\n    VariantProps<typeof progressVariants> {\n  bgIndicator?: string;\n  bg?: string;\n  value: number;\n}\n\nconst Progress: React.FC<ProgressProps> = ({ tw, size, ...props }) => {\n  // create a div that simulates the progress bar\n  return (\n    <div\n      tw={cn(\n        progressVariants({\n          size,\n          className:\n            tw +\n            ` ${\n              props.bg\n                ? props.bg?.startsWith(\"#\")\n                  ? `bg-[${props.bg}]`\n                  : props.bg\n                : \"bg-zinc-500\"\n            }`,\n        })\n      )}\n      {...props}\n    >\n      {/* instead of full rounded corners I would like to have only left rounded corners */}\n      <div\n        tw={`flex ${\n          props.bgIndicator\n            ? props.bgIndicator?.startsWith(\"#\")\n              ? `bg-[${props.bgIndicator}]`\n              : props.bgIndicator\n            : \"bg-zinc-300\"\n        } w-[${props.value > 100 ? 100 : props.value}%] h-full rounded-l-full`}\n      ></div>\n    </div>\n  );\n};\n\nexport { Progress };\nexport type { ProgressProps };\n",
+      "type": "registry:component",
+      "target": ""
+    }
+  ]
+}

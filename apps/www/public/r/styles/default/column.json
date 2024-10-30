@@ -1,0 +1,12 @@
+{
+  "name": "column",
+  "type": "registry:component",
+  "files": [
+    {
+      "path": "components/column.tsx",
+      "content": "import React from \"react\";\nimport { cva, VariantProps } from \"class-variance-authority\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst columnVariants = cva(\"flex flex-col\", {\n  variants: {},\n});\n\ninterface ColumnProps\n  extends React.ComponentPropsWithoutRef<\"div\">,\n    VariantProps<typeof columnVariants> {}\n\nconst Column: React.FC<ColumnProps> = ({ children, tw, ...props }) => {\n  return (\n    <div tw={cn(columnVariants({ className: tw }))} {...props}>\n      {children}\n    </div>\n  );\n};\n\nexport { Column };\nexport type { ColumnProps };\n",
+      "type": "registry:component",
+      "target": ""
+    }
+  ]
+}
