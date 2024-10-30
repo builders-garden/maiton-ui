@@ -1,0 +1,12 @@
+{
+  "name": "background-image",
+  "type": "registry:component",
+  "files": [
+    {
+      "path": "components/background-image.tsx",
+      "content": "import React from \"react\";\nimport { cva, VariantProps } from \"class-variance-authority\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst backgroundImageVariants = cva(\"flex\", {\n  variants: {\n    container: {\n      relative: \"flex-col relative\",\n      absolute: \"absolute top-0 left-0\",\n    },\n  },\n  defaultVariants: {},\n});\n\ninterface BackgroundImageProps\n  extends React.ComponentPropsWithoutRef<\"div\">,\n    VariantProps<typeof backgroundImageVariants> {\n  src?: string;\n  width?: string;\n  height?: string;\n}\n\nconst BackgroundImage: React.FC<BackgroundImageProps> = ({\n  src,\n  children,\n  tw,\n  width = \"955px\",\n  height = \"500px\",\n  ...props\n}) => {\n  if (!src) {\n    return (\n      <div\n        tw={\n          (cn(backgroundImageVariants({ className: tw })),\n          `w-[${width}] h-[${height}]`)\n        }\n        {...props}\n      >\n        {children}\n      </div>\n    );\n  }\n  if (!width.endsWith(\"px\") || !height.endsWith(\"px\")) {\n    width = `${width}px`;\n    height = `${height}px`;\n  }\n\n  return (\n    <div\n      tw={cn(\n        backgroundImageVariants({\n          className: tw,\n          container: \"relative\",\n        })\n      )}\n      {...props}\n    >\n      <img\n        tw={cn(\n          \"w-full\",\n          backgroundImageVariants({\n            className: tw,\n          })\n        )}\n        {...props}\n        src={src}\n        alt={\"background image\"}\n      />\n      <div\n        tw={cn(\n          backgroundImageVariants({\n            className: tw,\n            container: \"absolute\",\n          }),\n          `w-[${width}] h-[${height}]`\n        )}\n        {...props}\n      >\n        {children}\n      </div>\n    </div>\n  );\n};\n\nexport { BackgroundImage };\nexport type { BackgroundImageProps };\n",
+      "type": "registry:component",
+      "target": ""
+    }
+  ]
+}

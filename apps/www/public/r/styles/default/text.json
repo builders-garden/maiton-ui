@@ -1,0 +1,12 @@
+{
+  "name": "text",
+  "type": "registry:component",
+  "files": [
+    {
+      "path": "components/text.tsx",
+      "content": "import React from \"react\";\nimport { cva, VariantProps } from \"class-variance-authority\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst textVariants = cva(\"m-0\", {\n  variants: {\n    size: {\n      sm: \"text-[32px]\",\n      md: \"text-[40px]\",\n      lg: \"text-[52px]\",\n    },\n  },\n  defaultVariants: {\n    size: \"md\",\n  },\n});\n\ninterface TextProps\n  extends React.ComponentPropsWithoutRef<\"p\">,\n    VariantProps<typeof textVariants> {}\n\nconst Text: React.FC<TextProps> = ({ children, tw, size, ...props }) => {\n  return (\n    <p tw={cn(textVariants({ size, className: tw }))} {...props}>\n      {children}\n    </p>\n  );\n};\n\nexport { Text };\nexport type { TextProps };\n",
+      "type": "registry:component",
+      "target": ""
+    }
+  ]
+}

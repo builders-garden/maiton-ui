@@ -1,0 +1,12 @@
+{
+  "name": "address",
+  "type": "registry:component",
+  "files": [
+    {
+      "path": "components/address.tsx",
+      "content": "import React from \"react\";\n\nimport { Text, TextProps } from \"./text\";\n\ninterface AddressProps extends TextProps {\n  length?: number;\n}\n\nconst Address: React.FC<AddressProps> = ({\n  children,\n  length = 3,\n  ...props\n}) => {\n  const formatAddress = (address: string) => {\n    if (typeof address !== \"string\") return address;\n    if (address.length <= 2 + length * 2) return address;\n    return `${address.slice(0, 2 + length)}...${address.slice(-length)}`;\n  };\n\n  return <Text {...props}>{formatAddress(children as string)}</Text>;\n};\n\nexport { Address };\n",
+      "type": "registry:component",
+      "target": ""
+    }
+  ]
+}
