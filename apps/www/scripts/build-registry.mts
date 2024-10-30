@@ -2,9 +2,8 @@
 import { existsSync, promises as fs } from "fs";
 import { tmpdir } from "os";
 import path from "path";
-import { cwd } from "process";
 import { rimraf } from "rimraf";
-import { Project, ScriptKind, SyntaxKind } from "ts-morph";
+import { Project, ScriptKind } from "ts-morph";
 import { z } from "zod";
 
 import { registry } from "../registry";
@@ -21,14 +20,9 @@ import { fixImport } from "./fix-import.mts";
 const REGISTRY_PATH = path.join(process.cwd(), "public/r");
 
 const REGISTRY_INDEX_WHITELIST: z.infer<typeof registryItemTypeSchema>[] = [
-  // "registry:ui",
   "registry:lib",
   "registry:style",
   "registry:component",
-  // "registry:hook",
-  // "registry:theme",
-  // "registry:block",
-  // "registry:example",
 ];
 
 const project = new Project({
@@ -71,200 +65,6 @@ export const Index: Record<string, any> = {
       let sourceFilename = "";
 
       let chunks: any = [];
-      // if (item.type === "registry:block") {
-      //   const file = resolveFiles[0];
-      //   const filename = path.basename(file);
-      //   let raw: string;
-      //   try {
-      //     raw = await fs.readFile(file, "utf8");
-      //   } catch (error) {
-      //     continue;
-      //   }
-      //   const tempFile = await createTempSourceFile(filename);
-      //   const sourceFile = project.createSourceFile(tempFile, raw, {
-      //     scriptKind: ScriptKind.TSX,
-      //   });
-
-      //   const description = sourceFile
-      //     .getVariableDeclaration("description")
-      //     ?.getInitializerOrThrow()
-      //     .asKindOrThrow(SyntaxKind.StringLiteral)
-      //     .getLiteralValue();
-
-      //   item.description = description ?? "";
-
-      //   // Find all imports.
-      //   const imports = new Map<
-      //     string,
-      //     {
-      //       module: string;
-      //       text: string;
-      //       isDefault?: boolean;
-      //     }
-      //   >();
-      //   sourceFile.getImportDeclarations().forEach((node) => {
-      //     const module = node.getModuleSpecifier().getLiteralValue();
-      //     node.getNamedImports().forEach((item) => {
-      //       imports.set(item.getText(), {
-      //         module,
-      //         text: node.getText(),
-      //       });
-      //     });
-
-      //     const defaultImport = node.getDefaultImport();
-      //     if (defaultImport) {
-      //       imports.set(defaultImport.getText(), {
-      //         module,
-      //         text: defaultImport.getText(),
-      //         isDefault: true,
-      //       });
-      //     }
-      //   });
-
-      //   // Find all opening tags with x-chunk attribute.
-      //   const components = sourceFile
-      //     .getDescendantsOfKind(SyntaxKind.JsxOpeningElement)
-      //     .filter((node) => {
-      //       return node.getAttribute("x-chunk") !== undefined;
-      //     });
-
-      //   chunks = await Promise.all(
-      //     components.map(async (component, index) => {
-      //       const chunkName = `${item.name}-chunk-${index}`;
-
-      //       // Get the value of x-chunk attribute.
-      //       const attr = component
-      //         .getAttributeOrThrow("x-chunk")
-      //         .asKindOrThrow(SyntaxKind.JsxAttribute);
-
-      //       const description = attr
-      //         .getInitializerOrThrow()
-      //         .asKindOrThrow(SyntaxKind.StringLiteral)
-      //         .getLiteralValue();
-
-      //       // Delete the x-chunk attribute.
-      //       attr.remove();
-
-      //       // Add a new attribute to the component.
-      //       component.addAttribute({
-      //         name: "x-chunk",
-      //         initializer: `"${chunkName}"`,
-      //       });
-
-      //       // Get the value of x-chunk-container attribute.
-      //       const containerAttr = component
-      //         .getAttribute("x-chunk-container")
-      //         ?.asKindOrThrow(SyntaxKind.JsxAttribute);
-
-      //       const containerClassName = containerAttr
-      //         ?.getInitializer()
-      //         ?.asKindOrThrow(SyntaxKind.StringLiteral)
-      //         .getLiteralValue();
-
-      //       containerAttr?.remove();
-
-      //       const parentJsxElement = component.getParentIfKindOrThrow(
-      //         SyntaxKind.JsxElement
-      //       );
-
-      //       // Find all opening tags on component.
-      //       const children = parentJsxElement
-      //         .getDescendantsOfKind(SyntaxKind.JsxOpeningElement)
-      //         .map((node) => {
-      //           return node.getTagNameNode().getText();
-      //         })
-      //         .concat(
-      //           parentJsxElement
-      //             .getDescendantsOfKind(SyntaxKind.JsxSelfClosingElement)
-      //             .map((node) => {
-      //               return node.getTagNameNode().getText();
-      //             })
-      //         );
-
-      //       const componentImports = new Map<
-      //         string,
-      //         string | string[] | Set<string>
-      //       >();
-      //       children.forEach((child) => {
-      //         const importLine = imports.get(child);
-      //         if (importLine) {
-      //           const imports = componentImports.get(importLine.module) || [];
-
-      //           const newImports = importLine.isDefault
-      //             ? importLine.text
-      //             : new Set([...imports, child]);
-
-      //           componentImports.set(
-      //             importLine.module,
-      //             importLine?.isDefault ? newImports : Array.from(newImports)
-      //           );
-      //         }
-      //       });
-
-      //       const componnetImportLines = Array.from(
-      //         componentImports.keys()
-      //       ).map((key) => {
-      //         const values = componentImports.get(key);
-      //         const specifier = Array.isArray(values)
-      //           ? `{${values.join(",")}}`
-      //           : values;
-
-      //         return `import ${specifier} from "${key}"`;
-      //       });
-
-      //       const code = `
-      //       'use client'
-
-      //       ${componnetImportLines.join("\n")}
-
-      //       export default function Component() {
-      //         return (${parentJsxElement.getText()})
-      //       }`;
-
-      //       const targetFile = file.replace(item.name, `${chunkName}`);
-      //       const targetFilePath = path.join(
-      //         cwd(),
-      //         `registry/${style.name}/${type}/${chunkName}.tsx`
-      //       );
-
-      //       // Write component file.
-      //       rimraf.sync(targetFilePath);
-      //       await fs.writeFile(targetFilePath, code, "utf8");
-
-      //       return {
-      //         name: chunkName,
-      //         description,
-      //         component: `React.lazy(() => import("@/registry/${style.name}/${type}/${chunkName}")),`,
-      //         file: targetFile,
-      //         container: {
-      //           className: containerClassName,
-      //         },
-      //       };
-      //     })
-      //   );
-
-      //   // // Write the source file for blocks only.
-      //   sourceFilename = `__registry__/${style.name}/${type}/${item.name}.tsx`;
-
-      //   if (item.files) {
-      //     const files = item.files.map((file) =>
-      //       typeof file === "string"
-      //         ? { type: "registry:page", path: file }
-      //         : file
-      //     );
-      //     if (files?.length) {
-      //       sourceFilename = `__registry__/${style.name}/${files[0].path}`;
-      //     }
-      //   }
-
-      //   const sourcePath = path.join(process.cwd(), sourceFilename);
-      //   if (!existsSync(sourcePath)) {
-      //     await fs.mkdir(sourcePath, { recursive: true });
-      //   }
-
-      //   rimraf.sync(sourcePath);
-      //   await fs.writeFile(sourcePath, sourceFile.getText());
-      // }
 
       let componentPath = `@/registry/${style.name}/${type}/${item.name}`;
 
@@ -408,7 +208,6 @@ async function buildStyles(registry: Registry) {
               const fileName = file.path.split("/").pop();
 
               if (file.type === "registry:component") {
-                console.log("XXXXXXXXXXX file", file);
                 target = `components/${fileName}`;
               }
 
