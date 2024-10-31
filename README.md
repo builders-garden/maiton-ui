@@ -1,19 +1,71 @@
-# maiton-ui (alpha)
+# maiton (alpha)
 
 Simple and customizable components that you can copy and paste for building Farcaster frames fast.
-maiton-ui is free and open-source. Use it to build your own Farcaster frame components.
+maiton is free and open-source. Use it to build your own Farcaster frame components.
 
 ![docs get started page](/public/docs.jpg)
 
 ## Documentation
 
-Visit https://ui.maiton.xyz/docs for the full documentation.
+Visit https://maiton.xyz for the full documentation.
 
-## How to use
+## Installation
 
-At the moment maiton is not online, so if you like to use it on your projects you can clone the repository and link it locally.
+To install maiton, run:
 
-Steps:
+```bash
+pnpm install maiton
+```
+
+## Usage
+
+To use maiton, first you need to initialize the project:
+
+```bash
+pnpm maiton init
+```
+
+This command installs dependencies and adds the `cn` util for the project.
+
+Then, you can add components to your project:
+
+```bash
+pnpm maiton add [component]
+```
+
+For example:
+
+```bash
+pnpm maiton add avatar
+```
+
+Or you can run the command without any arguments to view a list of all available components:
+
+```bash
+pnpm maiton add
+```
+
+Enjoy building your Farcaster frame with maiton 🥳
+
+## Components
+
+- [Avatar](https://maiton.xyz/components/avatar): A simple circle avatar.
+- [Row](https://maiton.xyz/components/row): A horizontal flex container for layout.
+- [Column](https://maiton.xyz/components/column): A vertical flex container for layout.
+- [Container](https://maiton.xyz/components/container): A wrapper component with customizable padding.
+- [Address](https://maiton.xyz/components/address): A component to display and format blockchain addresses.
+- [Text](https://maiton.xyz/components/text): A customizable text component with various styles and sizes.
+- [Background Image](https://maiton.xyz/components/background-image): A component to add and style background images.
+- [Badge](https://maiton.xyz/components/badge): A small label component for status or categories.
+- [Banner](https://maiton.xyz/components/banner): A full-width component for important announcements or messages.
+- [Progress](https://maiton.xyz/components/progress): A progress bar component to show completion status.
+- [Transaction Result](https://maiton.xyz/components/transaction-result): A component to display blockchain transaction outcomes.
+- [User Banner](https://maiton.xyz/components/user-banner): A banner component displaying user information and details.
+- [Card](https://maiton.xyz/components/card): A versatile container component with optional header and footer.
+
+## Development
+
+Just follow these steps:
 
 1. Clone the repo
 
@@ -24,28 +76,14 @@ git clone git@github.com:builders-garden/maiton-ui.git
 2. Install the dependencies
 
 ```
-yarn install
+pnpm install
 ```
 
-3. Link maiton cli
+3. Start the development server
 
 ```
-cd cli && npm link
+pnpm dev
 ```
-
-4. Move inside your project root and link maiton
-
-```
-npm link maiton
-```
-
-5. Use it in your project
-
-```
-maiton add Text
-```
-
-Enjoy maiton 🎉
 
 ## Contributing
 

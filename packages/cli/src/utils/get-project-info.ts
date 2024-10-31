@@ -30,7 +30,7 @@ export const FRAMEWORKS = {
     name: "next-app",
     label: "Next.js",
     links: {
-      installation: "https://maiton.xyz/docs/installation/next",
+      installation: "https://www.maiton.xyz/getting-started",
       tailwind: "https://tailwindcss.com/docs/guides/nextjs",
     },
   },
@@ -38,7 +38,7 @@ export const FRAMEWORKS = {
     name: "next-pages",
     label: "Next.js",
     links: {
-      installation: "https://maiton.xyz/docs/installation/next",
+      installation: "https://www.maiton.xyz/getting-started",
       tailwind: "https://tailwindcss.com/docs/guides/nextjs",
     },
   },
@@ -46,7 +46,7 @@ export const FRAMEWORKS = {
     name: "manual",
     label: "Manual",
     links: {
-      installation: "https://maiton.xyz/docs/installation/manual",
+      installation: "https://www.maiton.xyz/getting-started",
       tailwind: "https://tailwindcss.com/docs/installation",
     },
   },
@@ -102,9 +102,30 @@ export async function getTsConfigAliasPrefix(cwd: string) {
     if (
       paths.includes("./*") ||
       paths.includes("./src/*") ||
-      paths.includes("./app/*") ||
-      paths.includes("./resources/js/*") // Laravel.
+      paths.includes("./app/*")
     ) {
+      return alias.at(0) ?? null;
+    }
+
+    if (paths.includes("./@/*")) {
+      // invalid alias for now
+      // so rewrite it inside the tsconfig.json
+      const currentTsConfig = await fs.readJSON(`${cwd}/tsconfig.json`);
+      const validPathTsConfig = {
+        ...currentTsConfig,
+        compilerOptions: {
+          ...currentTsConfig.compilerOptions,
+          paths: {
+            ...currentTsConfig.compilerOptions.paths,
+            [alias]: paths.map((path) => path.replace("./@/", "./")),
+          },
+        },
+      };
+      fs.writeFile(
+        `${cwd}/tsconfig.json`,
+        JSON.stringify(validPathTsConfig, null, 2),
+        "utf-8"
+      );
       return alias.at(0) ?? null;
     }
   }

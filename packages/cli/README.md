@@ -36,7 +36,7 @@ npx maiton add
 
 ## Documentation
 
-Visit https://maiton.xyz/docs/cli to view the documentation.
+Visit https://maiton.xyz to view the documentation.
 
 ## License
 

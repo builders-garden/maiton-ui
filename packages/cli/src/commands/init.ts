@@ -73,61 +73,6 @@ export const init = new Command()
     }
   });
 
-// export async function runInit(cwd: string, config: Config) {
-//   const spinner = ora(`Initializing project...`)?.start();
-
-//   // Ensure all resolved paths directories exist.
-//   for (const [key, resolvedPath] of Object.entries(config.resolvedPaths)) {
-//     // Determine if the path is a file or directory.
-//     // TODO: is there a better way to do this?
-//     let dirname = path.extname(resolvedPath)
-//       ? path.dirname(resolvedPath)
-//       : resolvedPath;
-
-//     // If the utils alias is set to something like "@/lib/utils",
-//     // assume this is a file and remove the "utils" file name.
-//     // TODO: In future releases we should add support for individual utils.
-//     if (key === "utils" && resolvedPath.endsWith("/utils")) {
-//       // Remove /utils at the end.
-//       dirname = dirname.replace(/\/utils$/, "");
-//     }
-
-//     if (!existsSync(dirname)) {
-//       await fs.mkdir(dirname, { recursive: true });
-//     }
-//   }
-
-//   const extension = config.tsx ? "ts" : "js";
-
-//   // Write cn file.
-//   await fs.writeFile(
-//     `${config.resolvedPaths.utils}.${extension}`,
-//     extension === "ts" ? templates.UTILS : templates.UTILS_JS,
-//     "utf8"
-//   );
-
-//   spinner?.succeed();
-
-//   // Install dependencies.
-//   const dependenciesSpinner = ora(`Installing dependencies...`)?.start();
-//   const packageManager = await getPackageManager(cwd);
-
-//   // TODO: add support for other icon libraries.
-//   const deps = [
-//     ...PROJECT_DEPENDENCIES,
-//     config.style === "new-york" ? "@radix-ui/react-icons" : "lucide-react",
-//   ];
-
-//   await execa(
-//     packageManager,
-//     [packageManager === "npm" ? "install" : "add", ...deps],
-//     {
-//       cwd,
-//     }
-//   );
-//   dependenciesSpinner?.succeed();
-// }
-
 export async function runInit(
   options: z.infer<typeof initOptionsSchema> & {
     skipPreflight?: boolean;

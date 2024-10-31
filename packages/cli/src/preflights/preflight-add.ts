@@ -51,11 +51,7 @@ export async function preFlightAdd(options: z.infer<typeof addOptionsSchema>) {
         "components.json"
       )} file by running the ${highlighter.info("init")} command.`
     );
-    logger.error(
-      `Learn more at ${highlighter.info(
-        "https://maiton.xyz/docs/components-json"
-      )}.`
-    );
+    logger.error(`Learn more at ${highlighter.info("https://maiton.xyz")}.`);
     logger.break();
     process.exit(1);
   }

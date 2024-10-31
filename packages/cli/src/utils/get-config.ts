@@ -74,13 +74,6 @@ export async function resolveConfigPaths(cwd: string, config: RawMaitonConfig) {
       cwd,
       utils: await resolveImport(config.aliases["utils"], tsConfig),
       components: await resolveImport(config.aliases["components"], tsConfig),
-      // ui: config.aliases["ui"]
-      //   ? await resolveImport(config.aliases["ui"], tsConfig)
-      //   : path.resolve(
-      //       (await resolveImport(config.aliases["components"], tsConfig)) ??
-      //         cwd,
-      //       "ui"
-      //     ),
       lib: config.aliases["lib"]
         ? await resolveImport(config.aliases["lib"], tsConfig)
         : path.resolve(

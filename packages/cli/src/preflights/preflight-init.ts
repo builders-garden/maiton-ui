@@ -78,16 +78,6 @@ export async function preFlightInit(
     )}.`
   );
 
-  // const tailwindSpinner = spinner(`Validating Tailwind CSS.`, {
-  //   silent: options.silent,
-  // }).start();
-  // if (!projectInfo?.tailwindConfigFile || !projectInfo?.tailwindCssFile) {
-  //   errors[ERRORS.TAILWIND_NOT_CONFIGURED] = true;
-  //   tailwindSpinner?.fail();
-  // } else {
-  //   tailwindSpinner?.succeed();
-  // }
-
   const tsConfigSpinner = spinner(`Validating import alias.`, {
     silent: options.silent,
   }).start();
@@ -99,26 +89,6 @@ export async function preFlightInit(
   }
 
   if (Object.keys(errors).length > 0) {
-    // if (errors[ERRORS.TAILWIND_NOT_CONFIGURED]) {
-    //   logger.break();
-    //   logger.error(
-    //     `No Tailwind CSS configuration found at ${highlighter.info(
-    //       options.cwd
-    //     )}.`
-    //   );
-    //   logger.error(
-    //     `It is likely you do not have Tailwind CSS installed or have an invalid configuration.`
-    //   );
-    //   logger.error(`Install Tailwind CSS then try again.`);
-    //   if (projectInfo?.framework.links.tailwind) {
-    //     logger.error(
-    //       `Visit ${highlighter.info(
-    //         projectInfo?.framework.links.tailwind
-    //       )} to get started.`
-    //     );
-    //   }
-    // }
-
     if (errors[ERRORS.IMPORT_ALIAS_MISSING]) {
       logger.break();
       logger.error(`No import alias found in your tsconfig.json file.`);

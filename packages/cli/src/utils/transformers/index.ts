@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import { tmpdir } from "os";
 import path from "path";
-import { Config, MaitonConfig } from "@/src/utils/get-config";
+import { MaitonConfig } from "@/src/utils/get-config";
 import { registryBaseColorSchema } from "@/src/utils/registry/schema";
 // import { transformCssVars } from "@/src/utils/transformers/transform-css-vars"
 import { transformImport } from "@/src/utils/transformers/transform-import";
@@ -16,7 +16,6 @@ export type TransformOpts = {
   filename: string;
   raw: string;
   config: MaitonConfig;
-  baseColor?: z.infer<typeof registryBaseColorSchema>;
   transformJsx?: boolean;
 };
 
@@ -37,12 +36,7 @@ async function createTempSourceFile(filename: string) {
 
 export async function transform(
   opts: TransformOpts,
-  transformers: Transformer[] = [
-    transformImport,
-    // transformRsc,
-    // transformCssVars,
-    // transformTwPrefixes,
-  ]
+  transformers: Transformer[] = [transformImport]
 ) {
   const tempFile = await createTempSourceFile(opts.filename);
   const sourceFile = project.createSourceFile(tempFile, opts.raw, {
@@ -52,13 +46,6 @@ export async function transform(
   for (const transformer of transformers) {
     transformer({ sourceFile, ...opts });
   }
-
-  // if (opts.transformJsx) {
-  //   return await transformJsx({
-  //     sourceFile,
-  //     ...opts,
-  //   })
-  // }
 
   return sourceFile.getText();
 }
