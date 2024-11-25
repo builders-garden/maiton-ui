@@ -1,0 +1,19 @@
+---
+title: Getting Started
+description: Start using Maiton
+---
+
+# Get started
+
+Maiton UI is a components library which will simplify your Frames development.
+It's inspired by shadcn, so to install a component, for example `Text`, simply run:
+
+```sh
+npx maiton-ui add text
+```
+
+You will find the new component in the `/frames/components` directory.
+
+Then, you can import it and start using right away.
+
+Check the [Text](/components/text#usage) page for some usage examples.

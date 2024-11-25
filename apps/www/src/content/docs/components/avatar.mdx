@@ -1,0 +1,75 @@
+---
+title: "Component: Avatar"
+description: "Avatar component"
+---
+
+// import { Button } from 'vocs/components'
+import { Avatar } from '../../../../components/Avatar'
+
+# Avatar
+
+{/* <Button href="https://github.com/builders-garden/maiton-ui/blob/main/components/Avatar.tsx">GitHub</Button> */}
+
+A versatile component that displays an avatar with various styles and sizes.
+
+:::code-group
+ 
+<div data-title="Preview">
+  <Avatar
+    src="https://lh3.googleusercontent.com/-S5cdhOpZtJ_Qzg9iPWELEsRTkIsZ7qGYmVlwEORgFB00WWAtZGefRnS4Bjcz5ah40WVOOWeYfU5pP9Eekikb3cLMW2mZQOMQHlWhg"
+    />
+</div>
+ 
+```tsx [Avatar.tsx]
+<Avatar
+  src="https://lh3.googleusercontent.com/-S5cdhOpZtJ_Qzg9iPWELEsRTkIsZ7qGYmVlwEORgFB00WWAtZGefRnS4Bjcz5ah40WVOOWeYfU5pP9Eekikb3cLMW2mZQOMQHlWhg"
+/>
+```
+
+:::
+
+## Installation
+
+:::code-group
+
+```bash [npm]
+npx maiton-ui add Avatar
+```
+
+```bash [yarn]
+yarn dlx maiton-ui add Avatar
+```
+
+```bash [pnpm]
+pnpx maiton-ui add Avatar
+```
+
+:::
+## Props
+
+The `Avatar` component extends [`img`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img), so you can pass all standard `img` props.
+
+### `src`
+
+| Description | The src of the avatar on the screen                          |
+|-------------|------------------------------------------------------------------ |
+| Type        | `string` |
+| Default     | `undefined`                                                        |
+
+### `size`
+
+| Description | The size of the banner text   |
+|-------------|------------------------------ |
+| Type        | `sm \| md \| lg \| undefined` |
+| Default     | `md`                          |
+
+### `borderRadius`
+
+| Description | The roundness of the avatar   |
+|-------------|------------------------------ |
+| Type        | `sm \| md \| lg \| xl \| full \| none` |
+| Default     | `full`                          |
+
+
+## Done
+

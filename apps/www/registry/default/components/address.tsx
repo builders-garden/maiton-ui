@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Text, TextProps } from "./text";
+import { Text, type TextProps } from "./text";
 
 interface AddressProps extends TextProps {
   length?: number;

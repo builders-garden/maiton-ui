@@ -1,0 +1,65 @@
+---
+title: Address
+description: Address component
+---
+
+import { Address } from "@/components/address";
+import { LinkButton } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<LinkButton icon="github" href="https://github.com/builders-garden/maiton-ui/blob/main/components/Address.tsx" target="_blank">GitHub</LinkButton>
+
+A simple text component that formats the address, truncating the middle part.
+
+<Tabs>
+  <TabItem label="Preview">
+    <Address length={2}>0xb794f5ea0ba39494ce839613fffba74279579268</Address>
+  </TabItem>
+  <TabItem label="Code">
+    ```tsx
+    <Address>0xb794f5ea0ba39494ce839613fffba74279579268</Address>
+    ```
+  </TabItem>
+</Tabs>
+
+## Installation
+
+<Tabs>
+  <TabItem label="npm">
+    ```bash
+    npx maiton add address
+    ```
+  </TabItem>
+  <TabItem label="yarn">
+    ```bash
+    yarn dlx maiton add address
+    ```
+  </TabItem>
+  <TabItem label="pnpm">
+    ```bash
+    pnpx maiton add address
+    ```
+  </TabItem>
+</Tabs>
+
+## Usage
+
+```tsx
+import { Address } from "@/components/ui/address";
+```
+
+```tsx
+<Address>0xb794f5ea0ba39494ce839613fffba74279579268</Address>
+```
+
+## Props
+
+The `Address` component extends [`Text`](/components/text), so you can pass all the [`TextProps`](/components/text#props).
+
+#### `length`
+
+|  |  |
+| ----------- | ---------------------------------------------------------------------------- |
+| Description | The number of characters we want to show at the start and end of the address |
+| Type        | `number \| undefined`                                                        |
+| Default     | `3`                                                                          |

@@ -2,8 +2,8 @@ import React from "react";
 
 import { cn } from "@/lib/utils";
 
-import { Container, ContainerProps } from "./container";
-import { Text, TextProps } from "./text";
+import { Container, type ContainerProps } from "./container";
+import { Text, type TextProps } from "./text";
 
 interface TransactionResultProps extends ContainerProps {
   type: "success" | "failed" | "error";

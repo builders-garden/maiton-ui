@@ -1,0 +1,51 @@
+---
+title: "Component: Text"
+description: "Text component"
+---
+
+// import { Button } from 'vocs/components'
+
+# Text
+
+{/* <Button href="https://github.com/builders-garden/maiton-ui/blob/main/components/Text.tsx">GitHub</Button> */}
+
+Manage a basic paragraph.
+
+## Installation
+
+:::code-group
+
+```bash [npm]
+npx maiton-ui add Text
+```
+
+```bash [yarn]
+yarn dlx maiton-ui add Text
+```
+
+```bash [pnpm]
+pnpx maiton-ui add Text
+```
+
+:::
+
+# Usage
+
+```tsx
+import { Text } from "../components/Text";
+```
+
+```tsx
+<Text>Text</Text>
+```
+
+# Props
+
+The `Text` component consists of a `p`, so you can pass its default [`props`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p) props.
+
+### `size`
+
+| Description | The text size                 |
+| ----------- | ----------------------------- |
+| Type        | `sm \| md \| lg \| undefined` |
+| Default     | `md`                          |

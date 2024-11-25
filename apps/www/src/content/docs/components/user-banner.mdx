@@ -1,0 +1,81 @@
+---
+title: "UserBanner"
+description: "A component that displays a user's profile picture and display name."
+---
+
+// import { Button } from 'vocs/components'
+
+# UserBanner
+
+{/* <Button href="https://github.com/builders-garden/maiton-ui/blob/main/components/UserBanner.tsx">GitHub</Button> */}
+
+A component that displays a user's profile picture and display name.
+
+## Installation
+
+:::code-group
+
+```bash [npm]
+npx maiton-ui add UserBanner
+```
+
+```bash [yarn]
+yarn dlx maiton-ui add UserBanner
+```
+
+```bash [pnpm]
+pnpx maiton-ui add UserBanner
+```
+
+:::
+
+
+## Usage
+
+To get the user data, you have to use the [`farcasterHubContext`](https://framesjs.org/middleware/farcaster-hub-context) in the middleware.
+
+```tsx
+import { UserBanner } from "../../../../components/UserBanner";
+```
+
+```tsx
+import { getUserDataForFid, UserDataReturnType } from "frames.js";
+
+const user: UserDataReturnType = await getUserDataForFid({
+  fid: ctx.message?.requesterFid,
+});
+
+...
+
+<UserBanner
+  user={{
+    displayName: user.displayName,
+    pfp: user?.profileImage,
+  }}
+/>
+
+```
+
+## Props
+
+The `UserBanner` component extends [`div`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div), so you can pass all standard `div` props.
+
+### `user`
+
+| Description | The user object containing display name and profile picture |
+|-------------|------------------------------------------------------------ |
+| Type        | `User: {displayName: string, pfp: string}`                |
+
+### `position`
+
+| Description | The position of the user banner on the screen                   |
+|-------------|---------------------------------------------------------------- |
+| Type        | `topRight \| bottomRight \| topLeft \| bottomLeft \| undefined` |
+| Default     | `topLeft`                                                       |
+
+### `size`
+
+| Description | The size of the user banner text |
+|-------------|--------------------------------- |
+| Type        | `sm \| md \| lg \| undefined`    |
+| Default     | `md`                             |

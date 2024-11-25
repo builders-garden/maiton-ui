@@ -1,0 +1,58 @@
+---
+title: Badge
+description: Badge component
+---
+
+// import { Button } from 'vocs/components'
+
+# Badge
+
+{/* <Button href="https://github.com/builders-garden/maiton-ui/blob/main/components/Badge.tsx">GitHub</Button> */}
+
+A versatile component that displays a badge with various styles and sizes.
+
+## Installation
+
+:::code-group
+
+```bash [npm]
+npx maiton-ui add Badge
+```
+
+```bash [yarn]
+yarn dlx maiton-ui add Badge
+```
+
+```bash [pnpm]
+pnpx maiton-ui add Badge
+```
+
+:::
+
+## Usage
+
+```tsx
+import { Badge } from "../components/Badge";
+```
+
+```tsx
+<Badge>Badge</Badge>
+```
+
+## Props
+
+The `Badge` component extends [`div`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div), so you can pass all standard `div` props.
+
+### `variant`
+
+| Description | The style variant of the badge                                                |
+|-------------|------------------------------------------------------------------------------ |
+| Type        | `primary \| secondary \| outline \| success \| error \| warning \| undefined` |
+| Default     | `primary`                                                                     |
+
+### `size`
+
+| Description | The size of the badge         |
+|-------------|------------------------------ |
+| Type        | `sm \| md \| lg \| undefined` |
+| Default     | `md`                          |

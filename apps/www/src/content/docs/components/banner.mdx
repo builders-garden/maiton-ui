@@ -1,0 +1,57 @@
+---
+title: Banner
+description: Banner component
+---
+
+// import { Button } from 'vocs/components'
+
+# Banner
+
+{/* <Button href="https://github.com/builders-garden/maiton-ui/blob/main/components/Banner.tsx">GitHub</Button> */}
+
+A component that displays a banner with customizable position and size.
+
+## Installation
+
+:::code-group
+
+```bash [npm]
+npx maiton-ui add Banner
+```
+
+```bash [yarn]
+yarn dlx maiton-ui add Banner
+```
+
+```bash [pnpm]
+pnpx maiton-ui add Banner
+```
+
+:::
+## Usage
+
+```tsx
+import { Banner } from "../components/Banner";
+```
+
+```tsx
+<Banner>Banner</Banner>
+```
+
+## Props
+
+The `Banner` component extends [`div`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div), so you can pass all standard `div` props.
+
+### `position`
+
+| Description | The position of the banner on the screen                          |
+|-------------|------------------------------------------------------------------ |
+| Type        | `centered \| topRight \| bottomRight \| topLeft \| bottomLeft \|` |
+| Default     | `centered`                                                        |
+
+### `size`
+
+| Description | The size of the banner text   |
+|-------------|------------------------------ |
+| Type        | `sm \| md \| lg \| undefined` |
+| Default     | `md`                          |
